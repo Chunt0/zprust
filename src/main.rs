@@ -1,5 +1,5 @@
-use zprust::run;
 use std::net::TcpListener;
+use zprust::startup::run;
 
 #[tokio::main]
 async fn main() -> Result<(), std::io::Error> {
