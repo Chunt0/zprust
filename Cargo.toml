@@ -13,4 +13,5 @@ name= "zprust"
 [dependencies]
 actix-web = "4.9.0"
 reqwest = "0.12.7"
+serde = { version = "1.0.209", features = ["derive"] }
 tokio = { version = "1.40.0", features = ["full"] }
