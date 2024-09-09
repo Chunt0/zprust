@@ -1133,4 +1133,31 @@ This should resolve the compilation error and provide better error handling.
 
 ---------------------------User---------------------------
 
+what kind of stirng formating is this?
+    match sqlx::query!(
+        r#"
+    INSERT INTO subscriptions (id, email, name, subscribed_at)
+        VALUES ($1, $2, $3, $4)
+    "#,
+
+---------------------------Agent---------------------------
+
+The string formatting you're seeing here is called a raw string literal in Rust. It's denoted by the `r#"..."#` syntax.
+
+Here's a breakdown of what's happening:
+
+1. The `r` at the beginning indicates that this is a raw string literal.
+
+2. The `#` symbols are used to specify the number of `#` symbols that will be used to terminate the string. In this case, there's only one `#` on each side.
+
+3. Everything between the opening `r#"` and the closing `"#` is treated as part of the string literal, including newlines, quotation marks, and backslashes. This means you don't need to escape special characters within the string.
+
+Raw string literals are particularly useful for writing SQL queries, regular expressions, or any other text that might contain a lot of special characters that would otherwise need to be escaped.
+
+In your specific example, it's being used to write a SQL query. The `$1`, `$2`, `$3`, and `$4` are placeholders for parameters that will be passed to the query separately, which is a common way to safely parameterize SQL queries and avoid SQL injection vulnerabilities.
+
+This syntax is part of Rust's language features and is commonly used with the `sqlx` library for database operations, as shown in your example.
+
+---------------------------User---------------------------
+
 
