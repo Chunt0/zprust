@@ -1,5 +1,6 @@
 use config::{Config, ConfigError, File, FileFormat};
 use serde::Deserialize;
+
 #[derive(Deserialize, Debug)]
 pub struct Settings {
     pub database: DatabaseSettings,
